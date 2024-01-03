@@ -1,0 +1,3 @@
+白话文解释（explanation）：{explanation}
+场景（scenarios）:{scenarios}
+事物（objects）:{objects}
