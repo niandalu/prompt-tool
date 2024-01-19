@@ -77,19 +77,15 @@ export class SchemaReader {
       this.inflationStrategy.inflate(k, v),
     );
 
+    if (!result.formatOutput) {
+      return result;
+    }
+
     result.formatOutput = {
       name: "formatOutput",
       description: "将输出结果结构化返回",
       ...result.formatOutput,
     };
-
-    return {
-      ...result,
-      formatOutput: {
-        name: "formatOutput",
-        description: "将输出结果结构化返回",
-        ...result.formatOutput,
-      },
-    };
+    return result;
   }
 }

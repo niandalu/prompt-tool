@@ -1,0 +1,6 @@
+Explanation:
+
+- Translation: {translation}
+- Phonetic: {phonetic}
+- Mnemonics: {mnemonics}
+- Scenarios: {scenarios}

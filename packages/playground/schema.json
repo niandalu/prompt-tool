@@ -1,95 +1,21 @@
 {
-  "prompts": [
-    { "name": "v1", "type": "default", "content:file": "./prompt/v1.txt" },
-    { "name": "v2", "type": "chat", "root": "./prompt/v2" },
-    {
-      "name": "v3",
-      "type": "cot",
-      "steps": [
-        {
-          "content:file": "./prompt/v3/translation.txt",
-          "outputKey": "explanation"
-        },
-        {
-          "content:file": "./prompt/v3/extraction.txt",
-          "outputKey": "extraction"
-        }
-      ]
-    }
-  ],
-  "formatOutput": {
-    "parameters": {
-      "type": "object",
-      "properties": {
-        "explanation": {
-          "type": "string",
-          "description": "现代文翻译"
-        },
-        "scenarios": {
-          "type": "array",
-          "description": "场景列表",
-          "items": {
-            "type": "string",
-            "description": "诗词可以应用的场景"
-          }
-        },
-        "objects": {
-          "type": "array",
-          "description": "事物列表",
-          "items": {
-            "type": "string",
-            "description": "诗词所描述的事物"
-          }
-        }
-      }
-    },
-    "required": ["explanation", "scenario", "objects"]
-  },
-
-  "examples": [
-    {
-      "title": "关雎",
-      "author": "佚名",
-      "source": "诗经",
-      "content:file": "guanju.txt",
-
-      "explanation:file": "guanju.explanation.txt",
-      "scenarios": ["思念"],
-      "objects": ["女子", "爱情", "河", "雎鸠"]
-    },
-    {
-      "title": "山居秋暝",
-      "author": "王维",
-      "source": "唐诗",
-      "content:file": "shanjuqiuming.txt",
-
-      "explanation": "一场新雨过后，青山变得更加清朗空旷，秋天的傍晚，天气也格外的凉爽。皎洁的明月透过松林撒落下斑驳的银光，清清的泉水在大石头上叮咚流淌。竹林深处传来欢声笑语，那是洗衣归来的农家女；莲花摇动的地方，那是沿流而下的打渔的小船。任凭春天的芳菲随着时令消逝吧，秋色如此令人流连，我自可留居山中。",
-      "scenarios": ["归隐", "雨后"],
-      "objects": ["山水", "雨", "秋天", "傍晚", "泉", "松树", "竹"]
-    },
-    {
-      "title": "赤壁",
-      "author": "杜牧",
-      "source": "唐诗",
-      "content:file": "chibi.txt",
-
-      "explanation:file": "chibi.explanation.txt",
-      "scenarios": ["观景"],
-      "objects": ["赤壁", "江"]
-    }
-  ],
+  "prompts": [{ "name": "v1", "type": "chat", "root": "./prompt/v1" }],
   "cases": [
     {
-      "title": "夜雨寄北",
-      "author": "李商隐",
-      "source": "唐诗",
-      "content:file": "yeyujibei.txt"
+      "text": "solidarity",
+      "to": "Chinese"
     },
     {
-      "title": "雨霖铃",
-      "author": "柳永",
-      "source": "宋词",
-      "content:file": "yulinling.txt"
+      "text": "nuance",
+      "to": "English"
+    },
+    {
+      "text": "mnemonics",
+      "to": "English"
+    },
+    {
+      "text": "facade",
+      "to": "English"
     }
   ]
 }

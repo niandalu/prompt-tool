@@ -4,7 +4,7 @@ import path from "path";
 class ResultStorage {
   constructor(options) {
     this.outputDir = path.resolve(options.root, "output");
-    if (!fs.existsSync) {
+    if (!fs.existsSync(this.outputDir)) {
       fs.mkdirSync(this.outputDir);
     }
   }
@@ -20,8 +20,10 @@ class ResultStorage {
     return fs.promises.writeFile(this.filename(name), v);
   }
 
-  async read(name, fallback) {
-    if (this.exists(name)) {
+  async read(name, fallback, options) {
+    const skipCache = options && options.skipCache;
+
+    if (!skipCache && this.exists(name)) {
       return fs.promises.readFile(this.filename(name), "utf8");
     }
 

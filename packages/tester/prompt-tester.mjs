@@ -12,6 +12,10 @@ import { SchemaReader } from "./reader.mjs";
 import { ResultStorage } from "./storage.mjs";
 
 function formatExamples(examples) {
+  if (!examples) {
+    return [];
+  }
+
   return examples.map((eg) => {
     const result = {};
     for (const [k, v] of Object.entries(eg)) {
@@ -28,6 +32,11 @@ function formatExamples(examples) {
 
 const setupBaseModel = (options) => {
   const { modelName, schema } = options;
+  if (!schema.formatOutput) {
+    const model = new ChatOpenAI({ modelName });
+    return model;
+  }
+
   const parser = new JsonOutputFunctionsParser();
   const model = new ChatOpenAI({ modelName })
     .bind({
@@ -123,13 +132,18 @@ class PromptTester {
     this.storage = new ResultStorage({ root: options.root });
   }
 
-  async test() {
+  async test(options = {}) {
+    const skipCache = Boolean(process.env.NO_PROMPT_CACHE || options.skipCache);
     const runners = await this.buildRunners();
 
     const all = await Promise.all(
       runners.map(async (runner) => {
-        const result = await this.storage.read(runner.name, () =>
-          runner.chain.batch(this.schema.cases),
+        const result = await this.storage.read(
+          runner.name,
+          () => {
+            return runner.chain.batch(this.schema.cases);
+          },
+          { skipCache },
         );
 
         return { name: runner.name, result };
@@ -141,10 +155,10 @@ class PromptTester {
     }, {});
   }
 
-  pick(name) {
+  async pick(name) {
     const runners = await this.buildRunners();
 
-    return runners.find(r => r.name === name)
+    return runners.find((r) => r.name === name);
   }
 
   buildRunners() {
