@@ -1,5 +1,5 @@
 {
-  "prompts": [{ "name": "v1", "type": "chat", "root": "./prompt/v1" }],
+  "prompts": [{ "name": "v1", "type": "chat", "root": "./v1" }],
   "cases": [
     {
       "text": "solidarity",

@@ -20,6 +20,7 @@
 1. 为 schema 引入特殊语法，让他可以去 source 文件
 2. 内嵌 function calling
 3. 内嵌 CoT、Few-Shots 的实现
+4. 支持 OpenAI ChatGPT、Azure 和 Ollama
 
 ## 如何使用
 
@@ -32,6 +33,32 @@
 ## 示例
 
 直接看 `packages/playground` 就可以了。
+
+### 调用方式
+
+``` javascript
+import "dotenv/config";
+import { PromptTester } from "@internal/tester";
+import path from "path";
+
+async function test() {
+  const chainBuilder = await PromptTester.fromSchema(
+    // Schema.json 的位置
+    path.resolve(__dirname, "./enum-converter/schema.json"),
+    // {
+    //   model: {
+    //     type: "azure", // 这里可以定制模型类型，支持 OpenAI ChatGPT、Azure 和 Ollama
+    //     name: "gpt-35-turbo-1106",
+    //   },
+    // },
+  );
+  const result = await chainBuilder.test({ skipCache: true });
+  return result;
+}
+
+test().then(console.log);
+
+```
 
 ## Schema 说明
 

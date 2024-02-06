@@ -1,0 +1,42 @@
+enum CopyrightType {
+  /**
+  * 录音
+  */
+  Recording = 1,
+  /**
+  * 词曲
+  */
+  LyricsAndComposition = 2,
+  /**
+  * 录音&词曲
+  */
+  RecordingAndLyricsAndComposition = 3,
+  /**
+  * 综艺
+  */
+  VarietyShow = 4,
+  /**
+  * SP
+  */
+  SP = 5,
+  /**
+  * KTV
+  */
+  KTV = 6,
+  /**
+  * 公播
+  */
+  PublicBroadcast = 7,
+  /**
+  * 授权
+  */
+  Authorization = 8,
+  /**
+  * 其他
+  */
+  Other = 100,
+  /**
+  * NA 无
+  */
+  NA = 200
+}

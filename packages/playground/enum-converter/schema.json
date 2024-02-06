@@ -1,0 +1,28 @@
+{
+  "prompts": [
+    {
+      "name": "v1",
+      "type": "default",
+      "content:file": "v1.txt"
+    }
+  ],
+  "formatOutput": {
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Code snippet in TypeScript"
+        }
+      }
+    },
+    "required": ["code"]
+  },
+
+  "examples": [],
+  "cases": [
+    {
+      "code:file": "copyright.txt"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+# Enum Converter
+
+Generate a code snippet from given enum definition. Respond code ONLY.
+
+## Definition
+
+### Input Format
+
+There are many `(DOC_STRING, KEY, VALUE)` pairs.
+
+```typescript
+enum <ENUM_NAME> {
+  <DOC_STRING>
+  <KEY> = <VALUE>
+}
+```
+
+## Output Format
+
+```typescript
+{
+  [<ENUM_NAME>.<KEY>]: <DOC_STRING_CONTENT>
+}
+```
+
+## Example
+
+Input:
+
+```
+{{code}}
+```
+
+Output:

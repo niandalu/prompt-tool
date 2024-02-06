@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "langchain": "~0.0.212"
+    "langchain": "^0.1.5",
+    "@langchain/community": "~0.0.19",
+    "handlebars": "~4.7.8"
   }
 }

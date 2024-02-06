@@ -17,9 +17,13 @@ importers:
 
   ../../packages/tester:
     specifiers:
-      langchain: ~0.0.212
+      '@langchain/community': ~0.0.19
+      handlebars: ~4.7.8
+      langchain: ^0.1.5
     dependencies:
-      langchain: 0.0.212
+      '@langchain/community': 0.0.19
+      handlebars: 4.7.8
+      langchain: 0.1.5_handlebars@4.7.8
 
 packages:
 
@@ -39,8 +43,8 @@ packages:
       - encoding
     dev: false
 
-  /@langchain/community/0.0.11:
-    resolution: {integrity: sha512-8L19AyzBueHrRtawxU4JstRtmzqsHK2jDJtSg/bv9ivto0kDKlILnauIDijcb09V/4mql2XolaS9r7eGe99yGA==}
+  /@langchain/community/0.0.19:
+    resolution: {integrity: sha512-4+vpEINOvCZVqjcVVmctvA7ewMSopRbqJ/leDx7hvkeW1iC/aZJDqzWZPxiYNM0VxmB8qeTPFSMB0l4AKwO74w==}
     engines: {node: '>=18'}
     peerDependencies:
       '@aws-crypto/sha256-js': ^5.0.0
@@ -103,6 +107,7 @@ packages:
       jsdom: '*'
       llmonitor: ^0.5.9
       lodash: ^4.17.21
+      lunary: ^0.6.11
       mongodb: ^5.2.0
       mysql2: ^3.3.3
       neo4j-driver: '*'
@@ -242,6 +247,8 @@ packages:
         optional: true
       lodash:
         optional: true
+      lunary:
+        optional: true
       mongodb:
         optional: true
       mysql2:
@@ -279,8 +286,8 @@ packages:
       ws:
         optional: true
     dependencies:
-      '@langchain/core': 0.1.4
-      '@langchain/openai': 0.0.8
+      '@langchain/core': 0.1.17
+      '@langchain/openai': 0.0.12
       flat: 5.0.2
       langsmith: 0.0.53
       uuid: 9.0.1
@@ -289,8 +296,8 @@ packages:
       - encoding
     dev: false
 
-  /@langchain/core/0.1.4:
-    resolution: {integrity: sha512-Y3/mQLEiQ78ZbsTGYvPRj5bpvrhpTAcsbdyEtlYEvjMLbehEADfjQ41G9zc7U/emkrGtHRmxWO1ISmoeXeDmyQ==}
+  /@langchain/core/0.1.17:
+    resolution: {integrity: sha512-PNmQgyAsDFm3DsZD+Djmm+sxH8xTGMlAryhYNgTg1Wkvhh+ztCqcVVYAv+aWch8CM56FBYMD8Guq0TJuRJJxEA==}
     engines: {node: '>=18'}
     dependencies:
       ansi-styles: 5.2.0
@@ -303,15 +310,16 @@ packages:
       p-retry: 4.6.2
       uuid: 9.0.1
       zod: 3.22.4
+      zod-to-json-schema: 3.22.3_zod@3.22.4
     dev: false
 
-  /@langchain/openai/0.0.8:
-    resolution: {integrity: sha512-F8DD6vs5BvMAHiDprINWCVf7jyNaYHp2zAqHwYij3+YAKsgIORm2EQvI6YtT3qPnGghpE3qz8H3DKjTNPywIzQ==}
+  /@langchain/openai/0.0.12:
+    resolution: {integrity: sha512-MR9x1xRXwJpdYlVx9Tga89q/MvxPrSTYyA5vy9tQ8dfQHNWnlgmI4gB/hDIsWUu1ooScagD4wW+aTnohTX+g+g==}
     engines: {node: '>=18'}
     dependencies:
-      '@langchain/core': 0.1.4
+      '@langchain/core': 0.1.17
       js-tiktoken: 1.0.8
-      openai: 4.24.1
+      openai: 4.25.0
       zod: 3.22.4
       zod-to-json-schema: 3.20.3_zod@3.22.4
     transitivePeerDependencies:
@@ -545,6 +553,19 @@ packages:
       unicorn-magic: 0.1.0
     dev: false
 
+  /handlebars/4.7.8:
+    resolution: {integrity: sha512-vafaFqs8MZkRrSX7sFVUdo3ap/eNiLnb4IakshzvP56X5Nr1iGKAIqdX6tMlm6HcNRIkr6AxO5jFEoJzzpT8aQ==}
+    engines: {node: '>=0.4.7'}
+    hasBin: true
+    dependencies:
+      minimist: 1.2.8
+      neo-async: 2.6.2
+      source-map: 0.6.1
+      wordwrap: 1.0.0
+    optionalDependencies:
+      uglify-js: 3.17.4
+    dev: false
+
   /humanize-ms/1.2.1:
     resolution: {integrity: sha512-Fl70vYtsAFb/C06PTS9dZBo7ihau+Tu/DNCk/OyHhea07S+aeMWpFFkUaXRa8fI+ScZbEI8dfSxwY7gxZ9SAVQ==}
     dependencies:
@@ -599,8 +620,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /langchain/0.0.212:
-    resolution: {integrity: sha512-zPcnAX3t1RuyWkbEkyqlIdR29j51Eylz7rcDcqET1baquR/r9xuk7P/HAJ6TFowiXDUg10d5YBD6VBvjwF/WDA==}
+  /langchain/0.1.5_handlebars@4.7.8:
+    resolution: {integrity: sha512-ku/4cHV+CaAlaTegjsGhsbaDdtFQi6OQW10Gi6JJvbX093XRADLRtIYYR5XLm7eFt6ZgvHszdQ55nSQqAgfjAg==}
     engines: {node: '>=18'}
     peerDependencies:
       '@aws-sdk/client-s3': ^3.310.0
@@ -630,6 +651,7 @@ packages:
       fast-xml-parser: ^4.2.7
       google-auth-library: ^8.9.0
       googleapis: ^126.0.1
+      handlebars: ^4.7.8
       html-to-text: ^9.0.5
       ignore: ^5.2.0
       ioredis: ^5.3.2
@@ -646,7 +668,7 @@ packages:
       pyodide: ^0.24.1
       redis: ^4.6.4
       sonix-speech-recognition: ^2.1.1
-      srt-parser-2: ^1.2.2
+      srt-parser-2: ^1.2.3
       typeorm: ^0.3.12
       vectordb: ^0.1.4
       weaviate-ts-client: ^1.4.0
@@ -709,6 +731,8 @@ packages:
         optional: true
       googleapis:
         optional: true
+      handlebars:
+        optional: true
       html-to-text:
         optional: true
       ignore:
@@ -759,11 +783,12 @@ packages:
         optional: true
     dependencies:
       '@anthropic-ai/sdk': 0.9.1
-      '@langchain/community': 0.0.11
-      '@langchain/core': 0.1.4
-      '@langchain/openai': 0.0.8
+      '@langchain/community': 0.0.19
+      '@langchain/core': 0.1.17
+      '@langchain/openai': 0.0.12
       binary-extensions: 2.2.0
       expr-eval: 2.0.2
+      handlebars: 4.7.8
       js-tiktoken: 1.0.8
       js-yaml: 4.1.0
       jsonpointer: 5.0.1
@@ -775,7 +800,7 @@ packages:
       uuid: 9.0.1
       yaml: 2.3.4
       zod: 3.22.4
-      zod-to-json-schema: 3.20.3_zod@3.22.4
+      zod-to-json-schema: 3.22.3_zod@3.22.4
     transitivePeerDependencies:
       - '@aws-crypto/sha256-js'
       - '@aws-sdk/client-bedrock-runtime'
@@ -820,6 +845,7 @@ packages:
       - hnswlib-node
       - llmonitor
       - lodash
+      - lunary
       - mysql2
       - neo4j-driver
       - pg
@@ -880,6 +906,10 @@ packages:
       mime-db: 1.52.0
     dev: false
 
+  /minimist/1.2.8:
+    resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
+    dev: false
+
   /ml-array-mean/1.1.6:
     resolution: {integrity: sha512-MIdf7Zc8HznwIisyiJGRH9tRigg3Yf4FldW8DxKxpCCv/g5CafTw0RRu51nojVEOXuCQC7DRVVu5c7XXO/5joQ==}
     dependencies:
@@ -915,6 +945,10 @@ packages:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
     dev: false
 
+  /neo-async/2.6.2:
+    resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
+    dev: false
+
   /node-domexception/1.0.0:
     resolution: {integrity: sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==}
     engines: {node: '>=10.5.0'}
@@ -937,8 +971,8 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /openai/4.24.1:
-    resolution: {integrity: sha512-ezm/O3eiZMnyBqirUnWm9N6INJU1WhNtz+nK/Zj/2oyKvRz9pgpViDxa5wYOtyGYXPn1sIKBV0I/S4BDhtydqw==}
+  /openai/4.25.0:
+    resolution: {integrity: sha512-qLMFOizjxKuDfQkBrczZPYo6XVL4bdcuz9MR11Q+M91kGcs8dQw+O90nRcC+qWuhaGphQkfXQJMn4cd7Yew3Kg==}
     hasBin: true
     dependencies:
       '@types/node': 18.19.3
@@ -1021,6 +1055,11 @@ packages:
     engines: {node: '>=14.16'}
     dev: false
 
+  /source-map/0.6.1:
+    resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
   /to-regex-range/5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
@@ -1031,6 +1070,14 @@ packages:
   /tr46/0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
     dev: false
+
+  /uglify-js/3.17.4:
+    resolution: {integrity: sha512-T9q82TJI9e/C1TAxYvfb16xO120tMVFZrGA3f9/P4424DNu6ypK103y0GPFVa17yotwSyZW5iYXgjYHkGrJW/g==}
+    engines: {node: '>=0.8.0'}
+    hasBin: true
+    requiresBuild: true
+    dev: false
+    optional: true
 
   /undici-types/5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
@@ -1067,6 +1114,10 @@ packages:
       webidl-conversions: 3.0.1
     dev: false
 
+  /wordwrap/1.0.0:
+    resolution: {integrity: sha512-gvVzJFlPycKc5dZN4yPkP8w7Dc37BtP1yczEneOb4uq34pXZcvrtRTmWV8W+Ume+XCxKgbjM+nevkyFPMybd4Q==}
+    dev: false
+
   /yaml/2.3.4:
     resolution: {integrity: sha512-8aAvwVUSHpfEqTQ4w/KMlf3HcRdt50E5ODIQJBw1fQ5RL34xabzxtUlzTXVqc4rkZsPbvrXKWnABCD7kWSmocA==}
     engines: {node: '>= 14'}
@@ -1076,6 +1127,14 @@ packages:
     resolution: {integrity: sha512-/Q3wnyxAfCt94ZcrGiXXoiAfRqasxl9CX64LZ9fj+4dKH68zulUtU0uk1WMxQPfAxQ0ZI70dKzcoW7hHj+DwSQ==}
     peerDependencies:
       zod: ^3.20.0
+    dependencies:
+      zod: 3.22.4
+    dev: false
+
+  /zod-to-json-schema/3.22.3_zod@3.22.4:
+    resolution: {integrity: sha512-9isG8SqRe07p+Aio2ruBZmLm2Q6Sq4EqmXOiNpDxp+7f0LV6Q/LX65fs5Nn+FV/CzfF3NLBoksXbS2jNYIfpKw==}
+    peerDependencies:
+      zod: ^3.22.4
     dependencies:
       zod: 3.22.4
     dev: false
